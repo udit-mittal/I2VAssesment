@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p+Q0YatAHHs=",
+  "dgSpecHash": "yAvylf7zesU=",
   "success": true,
-  "projectFilePath": "D:\\AssessmentTask_ECommerce\\E-Commerce.csproj",
+  "projectFilePath": "D:\\Assesment\\AssessmentTask_ECommerce\\E-Commerce.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mitta\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\mitta\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",

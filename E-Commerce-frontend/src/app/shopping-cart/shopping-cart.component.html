@@ -1,0 +1,149 @@
+<div class="shopping-cart-container">
+  <mat-card class="main-card">
+    <mat-card-header>
+      <mat-card-title>Shopping Cart</mat-card-title>
+      <mat-card-subtitle>Add products to your cart and apply discounts</mat-card-subtitle>
+    </mat-card-header>
+
+    <!-- Products Section -->
+    <mat-card-content>
+      <div class="section">
+        <h3>Available Products</h3>
+        <div class="products-grid">
+          <mat-card *ngFor="let product of products" class="product-card">
+            <mat-card-content>
+              <h4>{{ product.productName }}</h4>
+              <p class="price">${{ product.price | number:'1.2-2' }}</p>
+              <div class="product-actions">
+                <mat-form-field appearance="outline" class="quantity-input">
+                  <mat-label>Quantity</mat-label>
+                  <input matInput type="number" min="1" value="1" #quantityInput>
+                </mat-form-field>
+                <button mat-raised-button color="primary" 
+                        (click)="addToCart(product, +quantityInput.value)">
+                  <mat-icon>add_shopping_cart</mat-icon>
+                  Add to Cart
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <!-- Cart Items Section -->
+      <div class="section">
+        <h3>Your Cart</h3>
+        <div *ngIf="cartItems.length === 0" class="empty-cart">
+          <mat-icon>shopping_cart</mat-icon>
+          <p>Your cart is empty</p>
+        </div>
+        
+        <div *ngIf="cartItems.length > 0">
+          <table mat-table [dataSource]="cartItems" class="cart-table">
+            <ng-container matColumnDef="product">
+              <th mat-header-cell *matHeaderCellDef>Product</th>
+              <td mat-cell *matCellDef="let item">{{ item.product?.productName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef>Price</th>
+              <td mat-cell *matCellDef="let item">${{ item.product?.price | number:'1.2-2' }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef>Quantity</th>
+              <td mat-cell *matCellDef="let item">
+                <mat-form-field appearance="outline" class="quantity-input-small">
+                  <input matInput type="number" min="1" 
+                         [value]="item.quantity"
+                         #quantityInput
+                         (change)="updateQuantity(item, +quantityInput.value)">
+                </mat-form-field>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="subtotal">
+              <th mat-header-cell *matHeaderCellDef>Subtotal</th>
+              <td mat-cell *matCellDef="let item">${{ getSubtotal(item) | number:'1.2-2' }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let item">
+                <button mat-icon-button color="warn" 
+                        (click)="removeFromCart(item.cartItemID)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <div class="sale-button-section" style="margin-top: 16px; text-align: right;">
+            <button mat-raised-button color="primary" (click)="makeSale()">
+              <mat-icon>point_of_sale</mat-icon>
+              Sale
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <!-- Discount Section -->
+      <div class="section">
+        <h3>Apply Discount</h3>
+        <div class="discount-section">
+          <div class="discount-input">
+            <mat-form-field appearance="outline" class="discount-field">
+              <mat-label>Discount Code</mat-label>
+              <input matInput [(ngModel)]="selectedDiscountCode" 
+                     placeholder="Enter discount code">
+              <mat-hint>Available codes: {{ getAvailableDiscountCodes() }}</mat-hint>
+            </mat-form-field>
+            <button mat-raised-button color="accent" 
+                    (click)="applyDiscount()"
+                    [disabled]="!selectedDiscountCode.trim()">
+              <mat-icon>local_offer</mat-icon>
+              Apply Discount
+            </button>
+            <button mat-button color="warn" 
+                    (click)="clearDiscount()"
+                    *ngIf="appliedDiscount">
+              <mat-icon>clear</mat-icon>
+              Clear
+            </button>
+          </div>
+          
+          <div *ngIf="appliedDiscount" class="applied-discount">
+            <mat-icon color="accent">check_circle</mat-icon>
+            <span>Discount applied: {{ appliedDiscount.discountPercentage * 100 }}% off</span>
+          </div>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <!-- Total Section -->
+      <div class="section">
+        <div class="total-section">
+          <div class="total-row">
+            <span>Subtotal:</span>
+            <span>${{ cartTotal | number:'1.2-2' }}</span>
+          </div>
+          <div class="total-row" *ngIf="appliedDiscount">
+            <span>Discount ({{ appliedDiscount.discountPercentage * 100 }}%):</span>
+            <span>-${{ (cartTotal * appliedDiscount.discountPercentage) | number:'1.2-2' }}</span>
+          </div>
+          <div class="total-row final-total">
+            <span><strong>Total:</strong></span>
+            <span><strong>${{ cartTotalAfterDiscount | number:'1.2-2' }}</strong></span>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div> 

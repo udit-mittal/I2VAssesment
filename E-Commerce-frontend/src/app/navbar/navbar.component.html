@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <span class="app-title">
+    <mat-icon>shopping_cart</mat-icon>
+    E-Commerce Platform
+  </span>
+  <div class="spacer"></div>
+  <nav class="nav-links">
+    <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon>home</mat-icon>
+      Home
+    </a>
+    <a mat-button routerLink="/shopping-cart" routerLinkActive="active">
+      <mat-icon>shopping_cart</mat-icon>
+      Shopping Cart
+    </a>
+    <a mat-button routerLink="/product-list" routerLinkActive="active">
+      <mat-icon>inventory</mat-icon>
+      Products
+    </a>
+    <a mat-button routerLink="/sales-report" routerLinkActive="active">
+      <mat-icon>assessment</mat-icon>
+      Sales Report
+    </a>
+  </nav>
+</mat-toolbar>
+<div class="divider" role="separator" aria-label="Divider"></div>
+

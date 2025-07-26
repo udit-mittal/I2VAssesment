@@ -1,0 +1,88 @@
+<div class="home-container">
+  <div class="hero-section">
+    <mat-card class="hero-card">
+      <mat-card-content>
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Welcome to E-Commerce Platform</h1>
+            <p>A comprehensive solution for managing products, shopping carts, and sales reports</p>
+            <div class="hero-buttons">
+              <button mat-raised-button color="primary" routerLink="/shopping-cart">
+                <mat-icon>shopping_cart</mat-icon>
+                Start Shopping
+              </button>
+              <button mat-raised-button color="accent" routerLink="/product-list">
+                <mat-icon>inventory</mat-icon>
+                Manage Products
+              </button>
+            </div>
+          </div>
+          <div class="hero-image">
+            <mat-icon class="hero-icon">storefront</mat-icon>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="features-section">
+    <h2>Platform Features</h2>
+    <div class="features-grid">
+      <mat-card class="feature-card">
+        <mat-card-content>
+          <div class="feature-icon">
+            <mat-icon>shopping_cart</mat-icon>
+          </div>
+          <h3>Shopping Cart</h3>
+          <p>Add products to your cart, manage quantities, and apply discount codes for the best deals.</p>
+          <button mat-button color="primary" routerLink="/shopping-cart">
+            Go to Cart
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="feature-card">
+        <mat-card-content>
+          <div class="feature-icon">
+            <mat-icon>inventory</mat-icon>
+          </div>
+          <h3>Product Management</h3>
+          <p>Add, edit, and delete products with ease. Manage your product catalog efficiently.</p>
+          <button mat-button color="primary" routerLink="/product-list">
+            Manage Products
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="feature-card">
+        <mat-card-content>
+          <div class="feature-icon">
+            <mat-icon>assessment</mat-icon>
+          </div>
+          <h3>Sales Reports</h3>
+          <p>Generate detailed sales reports, view revenue analytics, and track most sold products.</p>
+          <button mat-button color="primary" routerLink="/sales-report">
+            View Reports
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="feature-card">
+        <mat-card-content>
+          <div class="feature-icon">
+            <mat-icon>local_offer</mat-icon>
+          </div>
+          <h3>Discount System</h3>
+          <p>Apply discount codes to your cart and save money on your purchases.</p>
+          <button mat-button color="primary" routerLink="/shopping-cart">
+            Apply Discounts
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+.product-management-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-card {
+  margin-bottom: 20px;
+}
+
+.actions-section {
+  margin-bottom: 20px;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-row {
+  margin-bottom: 15px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.table-section {
+  margin-top: 20px;
+}
+
+.products-table {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.products-table th {
+  background-color: #f5f5f5;
+  font-weight: 500;
+  color: #333;
+}
+
+.products-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.no-products {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.no-products mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-management-container {
+    padding: 10px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .products-table {
+    font-size: 0.9em;
+  }
+}
+
+/* Material Design Enhancements */
+/* mat-card {
+  border-radius: 12px;
+}
+
+mat-form-field {
+  margin-bottom: 10px;
+}
+
+button[mat-raised-button] {
+  border-radius: 8px;
+}
+
+button[mat-icon-button] {
+  border-radius: 50%;
+} */
+/* 
+.form-card {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ */
